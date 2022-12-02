@@ -11,6 +11,10 @@ a:hover{
   color: black;
 }
 
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
 *{
   user-select: none;  scroll-behavior: smooth;
   font-family: TexGyreHeros;
@@ -23,34 +27,64 @@ a:hover{
 }
 
 body{
+  height: 100%;
+overflow: hidden;
   font-size: 16px;
+  margin:0px;
 
 }
 
 .container{
+  position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   overflow: auto;
   /* padding-right:32%;
   padding-left: 32%; */
 /* border-style: solid; */
-display: block;
-width: 36%;
-min-width: 400px;
-margin: auto;
+padding-left: 32px;
+padding-right: 32px;
+display: flex;
+width: auto;
 height: auto;
 }
 
-.header{
+.left{
   /* border-style: dotted; */
-  padding-top: 12px;
+  border-color: red;
+  padding-top: 32px;
+  position: sticky;
+  top:0px;
+  width:40%;
+  height: 92vh;
+  margin-right: 10vw;
+}
+
+.right{
+  /* border-style: dotted; */
+  padding: 32px 0px 24px 24px;
+  width: 65%;
+  height:auto;
+  padding-right: 12px;
+  /* overflow: scroll; */
+}
+
+.header{
+  /* position: sticky;
+  border-style: dotted; */
+  margin-bottom: 0px;
+  /* padding-top: 12px; */
   display: flex;
   width: auto;
-
-
 }
 .name{
   /* float: left; */
-  width:30%;
+  width:auto;
 }
 .info{
+
   display: flex;
   justify-content: flex-start;
   /* border-style: dotted; */
@@ -73,24 +107,34 @@ height: auto;
 
 .bod{
   /* border-style: dotted; */
+  position: sticky;
+  top:0px;
 }
 .links{
   display: flex;
   margin-bottom: 12px;
+  position: sticky;
+  top:0px;
 }
 .bio{
-  margin-top: 32px;
+  position: sticky;
+  top:0px;
+  margin-top: 12px;
 /* border-style: dotted; */
 width: auto;
-margin-bottom: 60px;
+margin-bottom: 12px;
 }
 
 .Education{
+  position: sticky;
+  top:0px;
   hyphens: auto;
   width: 50%;
   margin-bottom: 12px;
 }
 .experience{
+  position: sticky;
+  top:0px;
   width: 50%;
 
 }
@@ -104,27 +148,31 @@ width: 100%;
   /* border-style: dotted; */
   margin-bottom: 32px;
 }
+
 .footer{
-  font-size: 14px;
-  position: sticky;
-  justify-content: flex-end;
   width: 99vw;
+  position: absolute;
+  bottom: 0px;
   display: flex;
   padding-top: 36px;
   padding-bottom: 4px;
 
   /* border-style: dotted; */
 }
+
+.altfooter{
+  display: none;
+}
 .button{
   color: black;
+  border-color: grey;
   text-decoration: none;
   font-size:15px;
   border-style: solid;
-  border-radius: 3px;
+  border-radius: 5px;
   border-width:1px;
   padding: 4px 14px;
-  border-bottom-width: 1.5px;
-  border-right-width: 1.5px;
+  padding-bottom: 6px;
 
 }
 .button:active{
@@ -136,19 +184,20 @@ width: 100%;
 .button:hover{
   padding: 6px 16px;
 }
-.rights{
-  padding-right: 12px;
-}
+
 img{
   border-style: solid;
   border-width: 1.2px;
-  width: 100%;
+  border-radius: 9px;
+  width: 80%;
   padding-bottom: 4px;
+  justify-content: center;
 
 }
 video{
   border-style: solid;
   border-width: 1.2px;
+
   width: 100%;
   padding-bottom: 4px;
 }
@@ -226,25 +275,37 @@ video:hover{
 
 } */
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .name{
     /* float: left; */
     width:100%;
     padding-top: 12px;
   }
-  body {
-
+  .left{
+    /* border-style: dotted; */
+    width: auto;
+    position: relative;
+    height: auto;
+    margin-right: 32px;
+  }
+  .footer{
+    display: none;
   }
   .container{
     /* padding-right:32%;
     padding-left: 32%; */
   /* border-style: solid; */
   display: block;
-  width: 80%;
   min-width:12px;
-  margin: auto;
+  margin: 24px;
   height: auto;
   }
+
+  .right{
+    /* border-style: dotted; */
+    width: auto;
+  }
+
   .info{
     display: none;
   }
@@ -262,6 +323,10 @@ video:hover{
   }
   .mobileinfo{
     display:block;
+  }
+
+  .altfooter{
+    display: block;
   }
 
 }
