@@ -1,0 +1,53 @@
+.projheader {
+  position: sticky;
+  opacity: 1;
+  /* border-style: dotted; */
+  margin: 70px auto;
+  text-align: center;
+  top: 70px;
+  width: 200px;
+  padding: 10px 12px 10px 12px;
+  border-radius: 35px;
+  background-color: rgba(255,255,255, 0.5);
+  backdrop-filter: blur(4px);
+
+}
+.highlight{
+  border-color: #FFF9D3;
+  background-color: #FFF9D3;
+  border-radius: 10px;
+  border-width: 2px;
+  padding: 4px 4px 4px 12px;
+  margin-bottom: 12px;
+  font-style: italic;
+  text-align: center;
+
+}
+.paragraph{
+  /* display: flex; */
+  margin: 24px auto;
+  width: 70%;
+  padding-bottom: 24px;
+  font-size: 16px;
+
+
+}
+
+#problem{
+  font-size: 32px;
+}
+.text{
+  margin: 2px;
+width: 50%;
+}
+
+.content {
+  /* border-style: dotted; */
+  height: 1000px;
+  margin-top: 70px;
+  padding-top: 0px;
+
+}
+
+.container {
+}

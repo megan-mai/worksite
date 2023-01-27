@@ -1,21 +1,54 @@
 
-let mybutton = document.getElementById("myBtn");
+$(window).on("load",function() {
+  $(window).scroll(function() {
+    var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+    $(".fade").each(function() {
+      /* Check the location of each desired element */
+      var objectBottom = $(this).offset().top + $(this).outerHeight();
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
+      /* If the element is completely within bounds of the window, fade it out */
+      if (objectBottom < windowBottom) { //object comes out of view (scrolling down)
+        if ($(this).css("opacity")==1) {
+          $(this).fadeTo(150,0);
+          $(".sidebar").fadeTo(150,1);
+        }
+      } else { //object goes into view (scrolling up)
+        if ($(this).css("opacity")==0) {
+          $(this).fadeTo(150,1);
+          $(".sidebar").fadeTo(150,0);
+        }
+      }
+    });
+  }).scroll(); //invoke scroll-handler on page-load
+});
 
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    //alert('1')
-    mybutton.style.display = "block";
-  } else {
-    //alert('2')
-    mybutton.style.display = "none";
-  }
-}
 
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}
+//fade in for contents
+
+// $(function(){  // $(document).ready shorthand
+//   $('#proj1').fadeIn('slow');
+// });
+
+$(document).ready(function() {
+
+    /* Every time the window is scrolled ... */
+    $(window).scroll( function(){
+
+        /* Check the location of each desired element */
+        $('.fade_in').each( function(i){
+
+            var bottom_of_object = $(this).position().top + 80;
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            /* If the object is completely visible in the window, fade it it */
+            if( bottom_of_window > bottom_of_object ){
+
+                $(this).animate({'opacity':'1'},500);
+
+            }
+
+        });
+
+    });
+
+});
